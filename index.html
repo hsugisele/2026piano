@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 仲夏古典鋼琴發表會</title>
+    
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 引入 Google Fonts 思源宋體 (Noto Serif TC) 與 思源黑體 (Noto Sans TC) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 高級黑金漸層與字體平滑 */
+        .concert-bg {
+            background-color: #0a0a0a;
+            background-image: radial-gradient(circle at 50% 30%, #151515 0%, #050505 100%);
+        }
+        
+        /* 奢華金屬漸層金文字 */
+        .gold-text-gradient {
+            background: linear-gradient(to bottom, #fff3d1 0%, #d4af37 40%, #aa7c11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 隱藏滾動條但保持功能 */
+        .no-scroll {
+            overflow: hidden;
+        }
+
+        /* 優雅平滑過渡 */
+        .transition-all-300 {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 金沙閃爍微特效背景 */
+        .gold-dust {
+            background-image: radial-gradient(rgba(212, 175, 55, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="font-sans text-stone-200 concert-bg gold-dust selection:bg-stone-800 selection:text-amber-300">
+
+    <!-- 1. 封面主視覺 (黑金交織與實體鋼琴尊貴意象) -->
+    <header class="relative min-h-screen flex flex-col items-center justify-between px-6 py-12 md:py-16 overflow-hidden border-b border-stone-900">
+        
+        <!-- 頂部副標 -->
+        <div class="relative z-10 text-center mt-4">
+            <span class="font-serif tracking-[0.4em] text-xs md:text-sm uppercase text-amber-500/80 font-medium">2026 TONG TONG PIANO STUDIO RECITAL</span>
+        </div>
+
+        <!-- 樂譜與海報風格大標題區 -->
+        <div class="relative z-10 w-full max-w-2xl mx-auto my-auto text-center py-6">
+            <!-- 雙金細線邊框，重現實體海報尊貴美學 -->
+            <div class="border-t border-b border-amber-500/30 py-8 px-4 my-6">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-black tracking-[0.25em] gold-text-gradient leading-normal md:leading-snug drop-shadow-[0_2px_10px_rgba(212,175,55,0.3)]">
+                    仲夏古典鋼琴發表會
+                </h1>
+                <p class="font-serif italic text-stone-400 text-xs md:text-sm tracking-[0.3em] uppercase mt-4">
+                    Grand Piano Recital
+                </p>
+            </div>
+            
+            <!-- 實體鋼琴意象 (矗立於聚光燈下的高雅鋼琴相片，非背景水印) -->
+            <div class="my-8 max-w-lg mx-auto relative group">
+                <!-- 金光外暈效果 -->
+                <div class="absolute -inset-1 bg-gradient-to-r from-amber-500/20 to-yellow-500/10 rounded-lg blur-xl opacity-75 group-hover:opacity-100 transition duration-1000"></div>
+                <div class="relative bg-black border border-amber-500/30 p-2 shadow-2xl rounded-sm">
+                    <img src="https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=1200&auto=format&fit=crop" 
+                         alt="實體演奏會鋼琴" 
+                         class="w-full h-48 md:h-64 object-cover grayscale contrast-125 brightness-90 hover:grayscale-0 transition-all duration-700 ease-in-out"
+                         onerror="this.src='https://placehold.co/600x400/111/fff?text=Grand+Piano'"/>
+                    <div class="absolute bottom-4 right-4 bg-black/80 backdrop-blur-sm border border-amber-500/40 px-3 py-1 text-[10px] tracking-widest text-amber-400 font-serif">
+                        STEINWAY & SONS
+                    </div>
+                </div>
+            </div>
+
+            <!-- 裝飾性精緻五線譜 -->
+            <div class="flex justify-center items-center space-x-4 text-amber-500/30 my-4">
+                <span class="font-serif text-lg">𝄞</span>
+                <div class="w-24 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+                <span class="font-serif text-sm">𝄢</span>
+                <div class="w-24 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent"></div>
+                <span class="font-serif text-lg">𝄾</span>
+            </div>
+        </div>
+
+        <!-- 時間地點資訊框 (高雅深灰黑金設計) -->
+        <div class="relative z-10 w-full max-w-xl mx-auto bg-stone-900/90 backdrop-blur-md border border-amber-500/20 p-6 md:p-8 shadow-2xl">
+            <div class="space-y-4 font-serif text-xs md:text-sm text-stone-300">
+                <div class="flex items-center">
+                    <!-- 日曆 SVG -->
+                    <svg class="w-5 h-5 mr-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                    <span class="tracking-widest">2026 年 09 月 13 日 (星期日)</span>
+                </div>
+                <div class="flex items-center">
+                    <!-- 時鐘 SVG -->
+                    <svg class="w-5 h-5 mr-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span class="tracking-widest">下午 13:00 入場 / 13:30 正式開始</span>
+                </div>
+                <div class="flex items-start">
+                    <!-- 地圖定位 SVG -->
+                    <svg class="w-5 h-5 mr-4 text-amber-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="font-medium tracking-widest text-amber-300">淡海市民活動中心 演藝廳</span>
+                        <span class="text-[11px] text-stone-400 mt-1 font-light font-sans">新北市淡水區淡海路111號 4樓</span>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="https://www.google.com/maps/search/?api=1&query=淡海市民活動中心" 
+               target="_blank" 
+               class="mt-6 flex items-center justify-center w-full py-3.5 bg-amber-500 hover:bg-amber-600 text-stone-950 font-serif text-xs font-bold tracking-[0.2em] uppercase transition-colors duration-300">
+                <!-- 導航 SVG -->
+                <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                </svg>
+                開啟 GOOGLE MAPS 導航
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. 老師的話 -->
+    <section class="py-24 px-6 max-w-2xl mx-auto text-center relative">
+        <span class="text-amber-500/50 font-serif text-3xl block mb-6">❦</span>
+        <h2 class="text-xl md:text-2xl font-serif text-amber-300 tracking-[0.25em] mb-10 relative inline-block">
+            歡迎您的蒞臨
+        </h2>
+        <div class="font-serif text-stone-300 leading-loose space-y-6 text-justify md:text-center text-xs md:text-sm font-light">
+            <p>
+                感謝各位家長與親友在百忙之中抽空蒞臨。今天的每一首樂曲，都代表著演出者無數次練習與努力的成果。
+            </p>
+            <p>
+                希望您放慢腳步，細細欣賞每位演奏家的精彩演出。無論是剛啟蒙的小學生，還是百忙之中抽空練琴的成人學生，他們對音樂的熱情都值得我們報以最熱烈的掌聲。
+            </p>
+            <p class="font-medium text-amber-300 pt-4 tracking-widest">
+                祝大家度過一個美好的音樂時光
+            </p>
+            <p class="text-right text-amber-500/60 font-serif pt-6 tracking-widest italic">— 童童老師 / 鋼琴工作室</p>
+        </div>
+    </section>
+
+    <!-- 3. 演出曲目表 (時間軸) -->
+    <section class="py-24 px-6 bg-stone-950/60 border-t border-b border-stone-900">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-amber-500/60 font-serif block mb-2">Program</span>
+                <h2 class="text-2xl font-serif text-amber-300 tracking-[0.2em]">節目流程與曲目</h2>
+                <div class="w-12 h-[2px] bg-amber-500/40 mx-auto mt-4"></div>
+                <p class="text-stone-400 mt-4 text-[11px] tracking-widest">點擊演出者方塊可閱讀其學習心得</p>
+            </div>
+
+            <!-- 時間軸容器 -->
+            <div class="relative border-l border-stone-800 ml-2 md:ml-6 space-y-16">
+                
+                <!-- 上半場 -->
+                <div class="relative pl-6 md:pl-10">
+                    <!-- 時間軸交點 (金耀菱形) -->
+                    <div class="absolute -left-[4.5px] top-1.5 w-2.5 h-2.5 bg-amber-500 rotate-45 ring-4 ring-stone-950 shadow-[0_0_8px_rgba(212,175,55,0.8)]"></div>
+                    <h3 class="text-base font-serif font-bold text-amber-300 tracking-widest mb-8 border-b border-stone-800 pb-2 inline-block">
+                        Part I. 上半場
+                    </h3>
+                    
+                    <div id="part1-container" class="space-y-4">
+                        <!-- 由 JavaScript 動態生成演出項目 -->
+                    </div>
+                </div>
+
+                <!-- 中場休息 -->
+                <div class="relative pl-6 md:pl-10 py-2">
+                    <div class="absolute -left-[4.5px] top-1/2 -translate-y-1/2 w-2.5 h-2.5 border border-amber-500 bg-stone-950 rotate-45 ring-4 ring-stone-950"></div>
+                    <div class="text-center text-stone-400 border-t border-b border-stone-900 py-4 my-2">
+                        <p class="font-serif tracking-[0.25em] uppercase text-xs text-amber-500/80">
+                          Intermission 中場休息 15 分鐘
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 下半場 -->
+                <div class="relative pl-6 md:pl-10">
+                    <div class="absolute -left-[4.5px] top-1.5 w-2.5 h-2.5 bg-amber-500 rotate-45 ring-4 ring-stone-950 shadow-[0_0_8px_rgba(212,175,55,0.8)]"></div>
+                    <h3 class="text-base font-serif font-bold text-amber-300 tracking-widest mb-8 border-b border-stone-800 pb-2 inline-block">
+                        Part II. 下半場
+                    </h3>
+                    
+                    <div id="part2-container" class="space-y-4">
+                        <!-- 由 JavaScript 動態生成演出項目 -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 觀眾注意事項 -->
+    <section class="py-24 px-6 max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-xs uppercase tracking-[0.3em] text-amber-500/60 font-serif block mb-2">Etiquette</span>
+            <h2 class="text-xl font-serif text-amber-300 tracking-[0.2em]">觀眾注意事項</h2>
+            <div class="w-12 h-px bg-amber-500/30 mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- 手機靜音 -->
+            <div class="flex flex-col items-center text-center p-8 bg-stone-900/50 border border-stone-800 hover:border-amber-500/20 transition-all duration-300">
+                <svg class="w-8 h-8 text-amber-400 mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                    <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                    <line x1="23" y1="9" x2="17" y2="15" />
+                    <line x1="17" y1="9" x2="23" y2="15" />
+                </svg>
+                <h3 class="font-serif text-sm mb-3 tracking-wider text-amber-300">手機靜音</h3>
+                <p class="text-stone-400 text-xs font-light leading-relaxed font-serif">請將手機轉為靜音或關機，以免突然的聲響影響演出與錄音品質。</p>
+            </div>
+
+            <!-- 請勿閃光 -->
+            <div class="flex flex-col items-center text-center p-8 bg-stone-900/50 border border-stone-800 hover:border-amber-500/20 transition-all duration-300">
+                <svg class="w-8 h-8 text-amber-400 mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                    <circle cx="12" cy="13" r="4" />
+                    <line x1="1" y1="1" x2="23" y2="23" />
+                </svg>
+                <h3 class="font-serif text-sm mb-3 tracking-wider text-amber-300">請勿使用閃光燈</h3>
+                <p class="text-stone-400 text-xs font-light leading-relaxed font-serif">歡迎拍照記錄，但請務必關閉閃光燈，以免驚嚇到台上專注的演出者。</p>
+            </div>
+
+            <!-- 進出場時機 -->
+            <div class="flex flex-col items-center text-center p-8 bg-stone-900/50 border border-stone-800 hover:border-amber-500/20 transition-all duration-300">
+                <svg class="w-8 h-8 text-amber-400 mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="15" y1="9" x2="9" y2="15" />
+                    <line x1="9" y1="9" x2="15" y2="15" />
+                </svg>
+                <h3 class="font-serif text-sm mb-3 tracking-wider text-amber-300">進出場時機</h3>
+                <p class="text-stone-400 text-xs font-light leading-relaxed font-serif">演出進行中請勿隨意走動；如需進出場，請於「兩首曲目之間的掌聲中」快速進行。</p>
+            </div>
+
+            <!-- 安靜聆聽 -->
+            <div class="flex flex-col items-center text-center p-8 bg-stone-900/50 border border-stone-800 hover:border-amber-500/20 transition-all duration-300">
+                <svg class="w-8 h-8 text-amber-400 mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                <h3 class="font-serif text-sm mb-3 tracking-wider text-amber-300">溫柔安靜聆聽</h3>
+                <p class="text-stone-400 text-xs font-light leading-relaxed font-serif">欣賞音樂時請輕聲細語，並請將最熱切的掌聲與喝采留在曲目完全結束後。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 交通與停車資訊 -->
+    <section class="py-24 px-6 bg-stone-950/80 text-stone-100 border-t border-stone-900">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] text-amber-500/60 font-serif block mb-2">Access</span>
+                <h2 class="text-xl font-serif text-amber-300 tracking-[0.2em]">交通與停車資訊</h2>
+                <div class="w-12 h-px bg-amber-500/30 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- 大眾運輸 -->
+                <div class="border border-stone-900 bg-stone-900/30 p-8 flex flex-col md:flex-row md:items-start group hover:border-amber-500/30 transition-colors duration-500">
+                    <!-- 捷運 SVG -->
+                    <svg class="w-8 h-8 text-amber-400 mb-4 md:mb-0 md:mr-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                        <rect x="4" y="2" width="16" height="16" rx="2" />
+                        <line x1="4" y1="12" x2="20" y2="12" />
+                        <circle cx="8" cy="15" r="1" />
+                        <circle cx="16" cy="15" r="1" />
+                        <path d="M6 22l2-4M18 22l-2-4" />
+                    </svg>
+                    <div>
+                        <h3 class="font-serif text-base text-amber-300 mb-4 tracking-wider uppercase">大眾運輸</h3>
+                        <ul class="text-stone-400 text-xs space-y-3 font-serif font-light leading-relaxed">
+                            <li><strong class="text-stone-200 font-normal">淡海輕軌：</strong>搭乘至「淡水行政中心站」，步行約 10 分鐘即可抵達。</li>
+                            <li><strong class="text-stone-200 font-normal">公車：</strong>搭乘 紅37、紅51、881 至「淡海市民活動中心」站下車。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 停車資訊 -->
+                <div class="border border-stone-900 bg-stone-900/30 p-8 flex flex-col md:flex-row md:items-start group hover:border-amber-500/30 transition-colors duration-500">
+                    <!-- 汽車 SVG -->
+                    <svg class="w-8 h-8 text-amber-400 mb-4 md:mb-0 md:mr-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                        <rect x="1" y="11" width="22" height="10" rx="2" />
+                        <path d="M5 11V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6" />
+                        <circle cx="6" cy="16" r="1.5" />
+                        <circle cx="18" cy="16" r="1.5" />
+                    </svg>
+                    <div>
+                        <h3 class="font-serif text-base text-amber-300 mb-4 tracking-wider uppercase">停車資訊</h3>
+                        <ul class="text-stone-400 text-xs space-y-3 font-serif font-light leading-relaxed">
+                            <li><strong class="text-stone-200 font-normal">活動中心地下停車場：</strong>提供收費汽機車停車格，每小時 30 元。（車位有限，建議提早到達）</li>
+                            <li><strong class="text-stone-200 font-normal">周邊路邊停車：</strong>淡海路沿線設有公有計時收費停車格。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 頁尾 Footer -->
+    <footer class="py-16 bg-stone-950 text-center px-6 border-t border-stone-900/60">
+        <p class="text-amber-500/75 font-serif tracking-[0.3em] uppercase text-[11px] mb-4">童童老師鋼琴工作室</p>
+        <p class="text-stone-600 text-[10px] font-sans tracking-widest uppercase">© 2026 TONG TONG PIANO STUDIO. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <!-- 7. 單一節目資訊彈窗 (Modal) -->
+    <div id="performer-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/85 backdrop-blur-md transition-opacity duration-300">
+        <div class="bg-stone-900 w-full max-w-md shadow-2xl relative border border-amber-500/20 overflow-hidden" onclick="event.stopPropagation()">
+            <!-- 彈窗關閉按鈕 -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 p-2 text-stone-500 hover:text-amber-400 transition-colors z-10 focus:outline-none">
+                <!-- 叉叉 SVG -->
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+            
+            <!-- 彈窗內容區 -->
+            <div class="p-8 md:p-10">
+                <div class="text-center mb-10 border-b border-stone-800 pb-8">
+                    <span id="modal-no" class="block text-amber-500/60 text-[10px] font-serif tracking-[0.2em] uppercase mb-4">
+                        Performer No.01
+                    </span>
+                    <h2 id="modal-name" class="text-2xl font-serif text-amber-300 tracking-wide">小宇</h2>
+                </div>
+
+                <div class="mb-10 space-y-6 text-center">
+                    <div>
+                        <span class="text-[10px] text-stone-500 uppercase tracking-[0.2em] block mb-2 font-serif">曲目 Piece</span>
+                        <p id="modal-song" class="text-lg font-serif text-stone-100 leading-relaxed font-bold">小奏鳴曲 Op.36 No.1 第一樂章</p>
+                    </div>
+                    <div>
+                        <span class="text-[10px] text-stone-500 uppercase tracking-[0.2em] block mb-2 font-serif">作曲家 Composer</span>
+                        <p id="modal-composer" class="text-stone-400 text-sm font-serif">克萊門蒂</p>
+                    </div>
+                </div>
+
+                <!-- 學習心得（雙引號精緻排版） -->
+                <div class="bg-stone-950 p-6 border border-stone-800 relative">
+                    <!-- 裝飾性大雙引號 -->
+                    <span class="text-5xl font-serif text-stone-800 absolute -top-4 left-4">“</span>
+                    <p id="modal-message" class="text-stone-300 text-xs leading-loose font-serif font-light italic relative z-10 text-justify">
+                        學習鋼琴讓我變得更有耐心，每次克服困難彈完一首新曲子，都覺得非常有成就感！希望大家喜歡我的表演。
+                    </p>
+                </div>
+                
+                <button onclick="closeModal()" class="w-full mt-8 py-3.5 bg-amber-500 hover:bg-amber-600 text-stone-950 text-xs font-bold uppercase tracking-[0.2em] transition-colors duration-300 font-serif">
+                    Close / 關閉資訊
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 腳本邏輯：動態演出者資料渲染與彈窗互動 -->
+    <script>
+        // 演出者原始資料庫
+        const programData = [
+            { id: '01', name: '小宇', song: '小奏鳴曲 Op.36 No.1 第一樂章', composer: '克萊門蒂', part: 1, message: '學習鋼琴讓我變得更有耐心，每次克服困難彈完一首新曲子，都覺得非常有成就感！希望大家喜歡我的表演。' },
+            { id: '02', name: '安安', song: '給愛麗絲 (Für Elise)', composer: '貝多芬', part: 1, message: '這是我從小就最喜歡的曲子，今天終於有機會在台上彈給大家聽，心裡既緊張又期待。' },
+            { id: '03', name: '林奕辰', song: '土耳其進行曲', composer: '莫札特', part: 1, message: '練這首曲子的節奏花了我很多時間，但在童童老師的指導下我終於練成了，音樂讓我學會專注。' },
+            { id: '04', name: '王小姐 (成人組)', song: '夢中的婚禮', composer: '理查·克萊德門', part: 1, message: '下班後練琴是我一天中最放鬆的時刻。雖然成年後才開始學，手指常常不聽使喚，但音樂實實在在地治癒了我。' },
+            { id: '05', name: '張子豪', song: '幻想即興曲 Op.66', composer: '蕭邦', part: 1, message: '為了準備這首曲子，我每天都練習超過兩個小時。鋼琴已經成為我生命中不可或缺的一部分。' },
+            { id: '06', name: '小晴', song: '星際效應電影配樂 (Cornfield Chase)', composer: '漢斯·季默', part: 2, message: '我非常喜歡這部電影，能用鋼琴彈出宇宙浩瀚的感覺讓我覺得很酷！學琴讓我能表達無法用言詞說出的感受。' },
+            { id: '07', name: '陳立軒', song: '月光奏鳴曲 第一樂章', composer: '貝多芬', part: 2, message: '這首曲子有一種寧靜又帶點憂傷的美。學鋼琴讓我懂得靜下心來去感受生活中的每一種情緒。' },
+            { id: '08', name: '李伯伯 (長青組)', song: '雨夜花', composer: '鄧雨賢', part: 2, message: '活到老學到老，彈奏我們那年代的熟悉旋律，心裡滿是感動。感謝童童老師沒有放棄我這個老學生。' },
+            { id: '09', name: '周佳穎', song: '華麗的大圓舞曲 Op.18', composer: '蕭邦', part: 2, message: '這首曲子充滿了活力與歡樂！在練習的過程中，我也逐漸培養了面對困難不輕易放棄的自信。' },
+            { id: '10', name: '童童老師', song: '愛之夢 第三首 (Liebestraum No. 3)', composer: '李斯特', part: 2, message: '將這首充滿愛的曲子獻給今天在座的所有家長、親友與我最棒的學生們。謝謝你們與我共享這個美好的午後。' }
+        ];
+
+        // 渲染節目表 HTML
+        function renderProgram() {
+            const part1Container = document.getElementById('part1-container');
+            const part2Container = document.getElementById('part2-container');
+
+            // 清空容器
+            part1Container.innerHTML = '';
+            part2Container.innerHTML = '';
+
+            programData.forEach(performer => {
+                const itemHTML = `
+                    <button onclick="openModal('${performer.id}')"
+                            class="w-full text-left bg-stone-900/50 border border-stone-800 p-5 hover:border-amber-500/50 transition-all-300 flex items-center justify-between group focus:outline-none">
+                        <div>
+                            <div class="text-[10px] text-amber-500/60 font-serif mb-1 tracking-[0.2em]">NO. ${performer.id}</div>
+                            <div class="font-serif text-base text-stone-100 group-hover:text-amber-300 transition-colors tracking-wide">${performer.name}</div>
+                            <div class="text-xs text-stone-400 mt-2 font-serif font-light truncate max-w-[220px] sm:max-w-md">${performer.song}</div>
+                        </div>
+                        <!-- 右側古典箭頭指引 -->
+                        <div class="text-stone-600 group-hover:text-amber-400 transition-colors">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 8 16 12 12 16" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
+                            </svg>
+                        </div>
+                    </button>
+                `;
+
+                if (performer.part === 1) {
+                    part1Container.insertAdjacentHTML('beforeend', itemHTML);
+                } else if (performer.part === 2) {
+                    part2Container.insertAdjacentHTML('beforeend', itemHTML);
+                }
+            });
+        }
+
+        // 開啟 Modal
+        function openModal(id) {
+            const performer = programData.find(p => p.id === id);
+            if (!performer) return;
+
+            document.getElementById('modal-no').innerText = `Performer No.${performer.id}`;
+            document.getElementById('modal-name').innerText = performer.name;
+            document.getElementById('modal-song').innerText = performer.song;
+            document.getElementById('modal-composer').innerText = performer.composer;
+            document.getElementById('modal-message').innerText = performer.message;
+
+            const modal = document.getElementById('performer-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.classList.add('no-scroll');
+        }
+
+        // 關閉 Modal
+        function closeModal() {
+            const modal = document.getElementById('performer-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+            document.body.classList.remove('no-scroll');
+        }
+
+        // 點擊彈窗外部關閉
+        document.getElementById('performer-modal').addEventListener('click', function() {
+            closeModal();
+        });
+
+        // 載入時初始化渲染
+        window.onload = function() {
+            renderProgram();
+        };
+    </script>
+</body>
+</html>
