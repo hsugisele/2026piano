@@ -54,6 +54,50 @@
             background-image: radial-gradient(rgba(212, 175, 55, 0.15) 1px, transparent 0);
             background-size: 24px 24px;
         }
+
+        /* 鋼琴照片光斑與粒子 CSS 特效 */
+        @keyframes float-dust-1 {
+            0% { transform: translateY(10px) translateX(0) scale(0.8); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-40px) translateX(15px) scale(1.1); opacity: 0; }
+        }
+        @keyframes float-dust-2 {
+            0% { transform: translateY(20px) translateX(0) scale(1); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-200px) translateX(-20px) scale(1.3); opacity: 0; }
+        }
+        @keyframes float-dust-3 {
+            0% { transform: translateY(0) translateX(0) scale(0.6); opacity: 0; }
+            50% { opacity: 0.4; }
+            100% { transform: translateY(-200px) translateX(-10px) scale(0.9); opacity: 0; }
+        }
+        @keyframes lens-flare-slide {
+            0% { transform: translate(-100%, -100%); opacity: 0; }
+            20% { opacity: 0; }                 /* 在滑行初期保持隱形，避免突然出現 */
+            45% { opacity: 0.5; }                /* 於相片中央達到最亮折射 */
+            55% { opacity: 0.5; }                /* 短暫維持優雅亮度 */
+            75% { opacity: 0; }                  /* 關鍵：在接近邊緣時，提前完全淡出消逝 */
+            100% { transform: translate(100%, 100%); opacity: 0; }
+        }
+
+        .dust-particle-1 {
+            animation: float-dust-1 7s infinite ease-in-out;
+        }
+        .dust-particle-2 {
+            animation: float-dust-2 9s infinite ease-in-out;
+            animation-delay: 2s;
+        }
+        .dust-particle-3 {
+            animation: float-dust-3 6s infinite ease-in-out;
+            animation-delay: 4.5s;
+        }
+        .ambient-soft-glow {
+            animation: soft-glow 8s infinite ease-in-out;
+        }
+        .lens-flare {
+            background: linear-gradient(135deg, transparent 40%, rgba(255, 243, 209, 0.25) 50%, transparent 60%);
+            animation: lens-flare-slide 10s infinite ease-in-out;
+        }
     </style>
 </head>
 <body class="font-sans text-stone-200 concert-bg gold-dust selection:bg-stone-800 selection:text-amber-300">
@@ -63,7 +107,7 @@
         
         <!-- 頂部副標 -->
         <div class="relative z-10 text-center mt-4">
-            <span class="font-serif tracking-[0.4em] text-xs md:text-sm uppercase text-amber-500/80 font-medium">2026 TONG TONG PIANO STUDIO RECITAL</span>
+            <span class="font-serif tracking-[0.4em] text-xs md:text-sm uppercase text-amber-500/80 font-medium">2026童童老師學生鋼琴發表會</span>
         </div>
 
         <!-- 樂譜與海報風格大標題區 -->
@@ -78,17 +122,38 @@
                 </p>
             </div>
             
-            <!-- 實體鋼琴意象 (矗立於聚光燈下的高雅鋼琴相片，非背景水印) -->
-            <div class="my-8 max-w-lg mx-auto relative group">
+            <!-- 實體鋼琴意象 (矗立於聚光燈下的高雅鋼琴相片，無文字框，附 CSS 動態光斑粒子效果) -->
+            <div class="my-8 max-w-lg mx-auto relative group overflow-hidden rounded-sm">
                 <!-- 金光外暈效果 -->
                 <div class="absolute -inset-1 bg-gradient-to-r from-amber-500/20 to-yellow-500/10 rounded-lg blur-xl opacity-75 group-hover:opacity-100 transition duration-1000"></div>
-                <div class="relative bg-black border border-amber-500/30 p-2 shadow-2xl rounded-sm">
-                    <img src="piano01.jpg" 
+                <div class="relative bg-black border border-amber-500/30 p-2 shadow-2xl overflow-hidden rounded-sm">
+                    
+                    <!-- 專業精緻平台鋼琴相片 (移除文字框，採用高對比劇場專業側影相片) -->
+                    <img src="piano02.jpg" 
                          alt="實體演奏會鋼琴" 
-                         class="w-full h-48 md:h-64 object-cover grayscale contrast-125 brightness-90 hover:grayscale-0 transition-all duration-700 ease-in-out"
+                         class="w-full h-56 md:h-72 object-cover grayscale contrast-125 brightness-95 hover:grayscale-0 transition-all duration-700 ease-in-out block"
                          onerror="this.src='https://placehold.co/600x400/111/fff?text=Grand+Piano'"/>
-                    <div class="absolute bottom-4 right-4 bg-black/80 backdrop-blur-sm border border-amber-500/40 px-3 py-1 text-[10px] tracking-widest text-amber-400 font-serif">
-                        STEINWAY & SONS
+                    
+                    <!-- CSS 慢速移動光斑與粒子特效層 -->
+                    <div class="absolute inset-0 pointer-events-none overflow-hidden z-10 m-2">
+                        <!-- 慢速掃過的光斑 (鏡頭光暈) -->
+                        <!-- <div class="absolute inset-0 lens-flare"></div> -->
+                        
+                        <!-- 溫柔的漫射背景光 -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-amber-500/5 via-transparent to-yellow-500/10 ambient-soft-glow"></div>
+                        
+                        <!-- 緩慢上升的金色微光粒子 -->
+                        <!-- 粒子 1 -->
+                        <div class="absolute bottom-6 left-1/4 w-1.5 h-1.5 bg-amber-300 rounded-full blur-[1px] dust-particle-1"></div>
+                        <!-- 粒子 2 -->
+                        <div class="absolute bottom-10 right-1/3 w-2 h-2 bg-yellow-200 rounded-full blur-[1.5px] dust-particle-2"></div>
+                        <!-- 粒子 3 -->
+                        <div class="absolute bottom-4 right-1/4 w-1 h-1 bg-amber-400 rounded-full dust-particle-3"></div>
+                        <!-- 更多微細粒子 -->
+                        <div class="absolute bottom-12 left-1/2 w-1.5 h-1.5 bg-yellow-300 rounded-full blur-[1px] dust-particle-1" style="animation-delay: 1.5s; animation-duration: 8s;"></div>
+                        <div class="absolute bottom-8 left-1/3 w-1 h-1 bg-amber-200 rounded-full dust-particle-3" style="animation-delay: 3s; animation-duration: 5s;"></div>
+                        <div class="absolute bottom-8 left-5/6 w-1 h-1 bg-amber-200 rounded-full dust-particle-3" style="animation-delay: 2s; animation-duration: 5s;"></div>
+                        <div class="absolute bottom-8 left-2/3 w-1 h-1 bg-amber-200 rounded-full dust-particle-3" style="animation-delay: 2.5s; animation-duration: 5s;"></div>
                     </div>
                 </div>
             </div>
@@ -165,7 +230,7 @@
             <p class="font-medium text-amber-300 pt-4 tracking-widest">
                 祝大家度過一個美好的音樂時光
             </p>
-            <p class="text-right text-amber-500/60 font-serif pt-6 tracking-widest italic">— 童童老師 / 鋼琴工作室</p>
+            <p class="text-right text-amber-500/60 font-serif pt-6 tracking-widest italic">— 童童老師 / 鋼琴家教班</p>
         </div>
     </section>
 
@@ -176,7 +241,7 @@
                 <span class="text-xs uppercase tracking-[0.3em] text-amber-500/60 font-serif block mb-2">Program</span>
                 <h2 class="text-2xl font-serif text-amber-300 tracking-[0.2em]">節目流程與曲目</h2>
                 <div class="w-12 h-[2px] bg-amber-500/40 mx-auto mt-4"></div>
-                <p class="text-stone-400 mt-4 text-[11px] tracking-widest">點擊演出者方塊可閱讀其學習心得</p>
+                <p class="text-stone-400 mt-4 text-[11px] tracking-widest">點擊演出者方塊可閱讀其詳細演出資訊</p>
             </div>
 
             <!-- 時間軸容器 -->
@@ -200,7 +265,7 @@
                     <div class="absolute -left-[4.5px] top-1/2 -translate-y-1/2 w-2.5 h-2.5 border border-amber-500 bg-stone-950 rotate-45 ring-4 ring-stone-950"></div>
                     <div class="text-center text-stone-400 border-t border-b border-stone-900 py-4 my-2">
                         <p class="font-serif tracking-[0.25em] uppercase text-xs text-amber-500/80">
-                          Intermission 中場休息 15 分鐘
+                          Intermission 中場休息 10 分鐘
                         </p>
                     </div>
                 </div>
@@ -280,7 +345,7 @@
             <div class="text-center mb-16">
                 <span class="text-xs uppercase tracking-[0.3em] text-amber-500/60 font-serif block mb-2">Access</span>
                 <h2 class="text-xl font-serif text-amber-300 tracking-[0.2em]">交通與停車資訊</h2>
-                <div class="w-12 h-px bg-amber-500/30 mx-auto mt-4"></div>
+                <div class="w-12 h-px bg-amber-50/30 mx-auto mt-4"></div>
             </div>
             
             <div class="space-y-8">
@@ -297,8 +362,8 @@
                     <div>
                         <h3 class="font-serif text-base text-amber-300 mb-4 tracking-wider uppercase">大眾運輸</h3>
                         <ul class="text-stone-400 text-xs space-y-3 font-serif font-light leading-relaxed">
-                            <li><strong class="text-stone-200 font-normal">淡海輕軌：</strong>搭乘至「淡水行政中心站」，步行約 10 分鐘即可抵達。</li>
-                            <li><strong class="text-stone-200 font-normal">公車：</strong>搭乘 紅37、紅51、881 至「淡海市民活動中心」站下車。</li>
+                            <li><strong class="text-stone-200 font-normal">淡海輕軌：</strong>搭乘淡海輕軌藍海線至「淡水漁人碼頭站」下車，步行約 4-6 分鐘即可抵達會場。</li>
+                            <li><strong class="text-stone-200 font-normal">公車：</strong>淡水捷運站轉乘 紅26、紅23、870、872 至「淡海市民活動中心」站下車。</li>
                         </ul>
                     </div>
                 </div>
@@ -315,8 +380,7 @@
                     <div>
                         <h3 class="font-serif text-base text-amber-300 mb-4 tracking-wider uppercase">停車資訊</h3>
                         <ul class="text-stone-400 text-xs space-y-3 font-serif font-light leading-relaxed">
-                            <li><strong class="text-stone-200 font-normal">活動中心地下停車場：</strong>提供收費汽機車停車格，每小時 30 元。（車位有限，建議提早到達）</li>
-                            <li><strong class="text-stone-200 font-normal">周邊路邊停車：</strong>淡海路沿線設有公有計時收費停車格。</li>
+                            <li><strong class="text-stone-200 font-normal">周邊路邊停車：</strong>會場對面設有停車場可供停車！假日周邊停車位有限，建議提早出發。</li>
                         </ul>
                     </div>
                 </div>
@@ -326,7 +390,7 @@
 
     <!-- 6. 頁尾 Footer -->
     <footer class="py-16 bg-stone-950 text-center px-6 border-t border-stone-900/60">
-        <p class="text-amber-500/75 font-serif tracking-[0.3em] uppercase text-[11px] mb-4">童童老師鋼琴工作室</p>
+        <p class="text-amber-500/75 font-serif tracking-[0.3em] uppercase text-[11px] mb-4">童童老師鋼琴家教班</p>
         <p class="text-stone-600 text-[10px] font-sans tracking-widest uppercase">© 2026 TONG TONG PIANO STUDIO. ALL RIGHTS RESERVED.</p>
     </footer>
 
