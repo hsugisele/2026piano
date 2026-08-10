@@ -451,8 +451,8 @@
             afternoonResponse.text()
         ]);
 
-        morningData = Papa.parse(morningCsv, {header: true,skipEmptyLines: true});
-        afternoonData = Papa.parse(afternoonCsv, {header: true,skipEmptyLines: true});
+        morningData = Papa.parse(morningCsv, {header: true,skipEmptyLines: true}).data;
+        afternoonData = Papa.parse(afternoonCsv, {header: true,skipEmptyLines: true}).data;
     }
 
     loadProgramData();
