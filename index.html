@@ -416,55 +416,42 @@
 
     <!-- 8. 數據與腳本邏輯 -->
     <script>
-        // 上午場完整數據
-        const morningData = [
-            { id: '01', name: '李靖奕', time: '半年', song: '貝多芬土耳其進行曲', composer: '貝多芬', intro: '貝多芬的土耳其進行曲是一首輕快活潑的古典名曲，原本是為了1809年的六首鋼琴變奏曲所創作，在1811年被用於歌劇「雅典的廢墟」中的第四曲，從微弱的樂聲漸漸變強，彷彿一支軍隊從遠處漸漸走來，曲中充滿軍樂的行進感，模仿土耳其禁衛軍的粗獷與熱鬧節奏，整首曲子充滿了朝氣與力量。', part: 1, message: '彈鋼琴讓我感覺很享受、快樂' },
-            { id: '02', name: '黃瀅恩', time: '2年', song: '三首古典鋼琴小品組曲—春、秋和一位迷人的少女', composer: '韋瓦第、柴可夫斯基', intro: '演奏鋼琴古典小品組曲：韋瓦第的「春」和「秋」以及柴可夫斯基的「一位迷人的少女」。這三首曲子雖然是簡單版，但是非常的好聽，旋律也是我們常常聽到的古典曲子。', part: 1, message: '學習音樂很開心，感受旋律、感受節奏，真是太美妙了，曲子從不會彈到會彈也讓我有成就感。' },
-            { id: '03', name: '賴郁昕', time: '5個月', song: '兩首古典鋼琴小品組曲—驚愕交響曲+Red Indian Dance（印地安人舞曲）', composer: '約瑟夫·海頓、Frank Weldon（法蘭克・威爾登）', intro: '《驚愕交響曲》（第94號交響曲）：\n• 「驚愕（Surprise）」名稱來自第二樂章，音樂原本十分輕柔，突然出現全樂團強奏大和弦。\n• 旋律線條清晰、和聲規律，樂句對稱且重視理性與平衡，打破傳統古典樂沉悶。\n\n《Red Indian Dance（印地安人舞曲）》：\n• 鮮明的節奏與重複主題旋律，留意強弱對比，增加音樂的活力與戲劇效果。', part: 1, message: '雖然練習很辛苦，但是一次比一次會更多，很開心，而且可以和好朋友一起玩鋼琴。' },
-            { id: '04', name: '江光義', time: '', song: '三首古典鋼琴小品組曲', composer: '', intro: '', part: 1, message: '' },
-            { id: '05', name: '林鈺衿', time: '', song: '兩首古典鋼琴小品組曲', composer: '', intro: '', part: 1, message: '' },
-            { id: '06', name: '林芯彤', time: '1年4個月', song: '兩首古典鋼琴小品組曲—雷神進行曲/魔笛', composer: '蘇沙 / 莫札特', intro: '(1)《雷神進行曲》：由美國「進行曲之王」蘇沙創作，改編成鋼琴彈奏後，聽起來就像天上的雷聲一樣富有節奏感和力量！\n(2)《魔笛》：音樂神童莫札特人生最後一部歌劇作品，鋼琴版旋律純真、優美且輕快，聽起來就像魔法一樣神奇。', part: 1, message: '彈鋼琴要手眼協調，這樣可以讓我提升專注力，一開始還手忙腳亂的，現在已經可以彈出一首歌曲，這樣還讓我有一種成就感。' },
-            { id: '07', name: '周依瑩女士', time: '4個月', song: '兩首古典鋼琴小品組曲—愛的喜悅、抒情調', composer: '馬狄尼、莫扎特（伊宏明編曲）', intro: '(1)「愛的喜悅」：本為法國作家洛里昂的情詩，由法國作曲家馬狄尼譜曲廣為流傳，是一首旋律優美的情歌。\n(2)「抒情調」：選自莫扎特喜歌劇［唐•喬凡尼］，帶有優雅與幽默風格，戲劇張力強烈。', part: 1, message: '過去自己只一昧將學琴重心放在孩子身上，直到有一天覺得要對自己好一點開始學琴！孩子也跟著排隊要練琴。在學琴的同時同理孩子的不易，當我們經過不斷努力練習，讓曲目越來越熟悉、悅耳，這感覺真的很棒。' },
-            { id: '08', name: '莊貴華女士', time: '10個月', song: '三首古典鋼琴小品組曲—1.夜曲 Op.9 No.2 、2.小夜曲 、3.野玫瑰', composer: '蕭邦、莫札特、舒伯特', intro: '1. 蕭邦《夜曲 Op.9 No.2》：旋律如月光灑落夜空，流露浪漫思念。\n2. 莫札特《小夜曲》：旋律輕快優雅，洋溢歡樂與和諧之美。\n3. 舒伯特《野玫瑰》：描繪少年與野玫瑰相遇的故事，展現純真與生命力。', part: 1, message: '學琴的初衷是陪伴孩子，即使孩子後來不學了，我仍選擇繼續前行完成童年夢想。在音樂裡我與自己對話，感受平靜與力量。' },
-            { id: '09', name: '蘇宥瑄', time: '2年11個月', song: '舒密特C大調小奏鳴曲+舒曼快樂的農夫', composer: '舒密特、舒曼', intro: '《小奏鳴曲》：德國作曲家雅各·舒密特作品，專為鋼琴初學者所寫，結構清晰。\n《快樂的農夫》：舒曼為大女兒十歲生日所作，收錄於《少年鋼琴曲集》，描繪農夫迎著陽光走入田野的純樸歡樂氣息。', part: 1, message: '學習鋼琴能提升專注力、記憶力和手眼協調，促進大腦發展，有助於情緒表達與減壓，長期練習更能培養毅力與自信心。' },
-            { id: '10', name: '傅宇寬', time: '5年', song: '天堂與地獄（康康舞）', composer: '奧芬巴哈', intro: '奧芬巴哈的代表作，改編自希臘神話故事，曲調輕快熱烈、家喻戶曉。', part: 1, message: '生活比較有節奏，無聊的時候也可以去彈鋼琴，我也覺得彈鋼琴蠻好玩的，如果都沒有彈錯的話會蠻有成就感的。' },
-            { id: '11', name: '莊沛洮', time: '2年', song: '拉代斯基進行曲+給愛麗絲', composer: '老約翰·史特勞斯、貝多芬', intro: '1. 《拉德斯基進行曲》：老約翰·史特勞斯為慶祝戰役勝利而寫的著名軍事進行曲。\n2. 《給愛麗絲》：貝多芬於1810年創作的經典名曲，旋律深情優雅。', part: 2, message: '可以有耐心，彈給家人聽，自己也很開心，也可以邊彈琴邊唱歌，彈琴讓我很開心。' },
-            { id: '12', name: '張睿妍＆蔡沛珊媽媽', time: '3年', song: '四手聯彈   美國巡邏兵', composer: '法蘭克·米查姆', intro: '融合美國愛國歌曲，旋律輕快充滿活力，生動模擬士兵巡邏時整齊而精神抖擻的步伐。', part: 2, message: '學琴需要大量反覆的練習，因此培養了我的耐心。我最喜歡課堂上和童童老師偶爾的閒聊，覺得很有趣。' },
-            { id: '13', name: '蔡沛珊女士', time: '3年', song: '巴哈C大調No.1前奏曲', composer: '巴哈', intro: '巴哈為教導11歲兒子所寫的音樂教材。由如流水般展開的分解和弦交織而成，展現完美的和聲結構。', part: 2, message: '持續學習鋼琴的過程中，進步是緩慢的，常常必須對自己有耐心，但是每當聽見自己可以彈出越來越多自己喜歡的曲子是充滿成就感的時刻。' },
-            { id: '14', name: '黃宇榛', time: '', song: '巴哈小步舞曲+阿拉貝斯克', composer: '巴哈、布格繆勒', intro: '', part: 2, message: '' },
-            { id: '15', name: '張驊萱', time: '', song: '滑冰圓舞曲+藍色多瑙河', composer: '瓦爾德退費爾、史特勞斯', intro: '', part: 2, message: '' },
-            { id: '16', name: '張睿涵', time: '5年', song: '天鵝組曲', composer: '聖桑 / 柴可夫斯基', intro: '(1) 聖桑《天鵝》：出自《動物狂歡節》，輕柔分解和弦勾勒出天鵝安詳滑行的姿態。\n(2) 柴可夫斯基《天鵝湖》：講述齊格菲王子與天鵝公主奧黛特的經典芭蕾舞劇故事。', part: 2, message: '雖然練習的過程中難免遇到挫折，但是克服困難讓我獲得成就感，尤其可以彈自己喜歡的曲子時更加開心。' },
-            { id: '17', name: '江光嬡', time: '', song: '布拉姆斯圓舞曲+莫札特第11號鋼琴奏鳴曲', composer: '布拉姆斯、莫札特', intro: '', part: 2, message: '' },
-            { id: '18', name: '張庭瑜', time: '2年多', song: '巴哈小步舞曲1.2.3首', composer: '佩措爾德 / 巴哈', intro: '著名的〈G大調小步舞曲〉收錄於巴哈送給妻子的《安娜·瑪格達蕾娜筆記本》中，原作者經考證為佩措爾德，曲風輕快優雅。', part: 2, message: '學習鋼琴可以幫助我提升專注力與眼手協調，鍛鍊左右腦並增進記憶力，還能透過彈奏音樂釋放壓力，培養耐心與面對挫折的抗壓能力。' },
-            { id: '19', name: '花語彤', time: '5年', song: '柴可夫斯基第一號鋼琴協奏曲', composer: '柴可夫斯基', intro: '柴可夫斯基最受歡迎的鋼琴協奏曲之一。開頭以磅礴厚重的氣勢開場，接著接續柔和旋律，融合俄國與烏克蘭民謠元素。', part: 2, message: '大概是可以嘗試彈奏自己喜歡的歌曲吧，如果成功了會獲得很大的成就感。' },
-            { id: '20', name: '張文丞先生', time: '', song: '莫札特小夜曲', composer: '莫札特', intro: '', part: 2, message: '' },
-            { id: '21', name: '陳睿廣', time: '', song: 'D大調卡農', composer: '帕赫貝爾', intro: '', part: 2, message: '' }
-        ];
 
-        // 下午場完整數據
-        const afternoonData = [
-            { id: '01', name: '曾柔萁', time: '6年', song: '韋瓦第 四季〔冬〕', composer: '韋瓦第', intro: '〈冬〉是韋瓦第 1725 年出版的經典作品。樂曲對應十四行詩：第一樂章模擬嚴冬牙齒打顫；第二樂章描繪坐在壁爐旁享受溫暖；第三樂章則模擬冰上行走的滑倒與風暴感。', part: 1, message: '每當指尖觸碰到琴鍵，隨著旋律流淌出來，日常的喧囂與壓力彷彿瞬間被隔絕在外。當我能順暢地彈出一首心愛的曲子時，那種成就感與快樂是無可比擬的。' },
-            { id: '02', name: '林子雲', time: '5年', song: '羅西尼〔威廉泰爾〕序曲', composer: '羅西尼', intro: '歌劇《威廉泰爾》著名序曲，末段描繪瑞士獨立軍行進，慷慨激昂的旋律如同萬馬奔騰。', part: 1, message: '放鬆心情' },
-            { id: '03', name: '高培晏', time: '1年', song: '鱒魚+軍隊進行曲', composer: '舒伯特', intro: '🎵《鱒魚》：描繪小魚在溪水中快樂游泳流動的輕快旋律。\n🎵《軍隊進行曲》：舒伯特年輕時所作，展現整齊有力量的軍人行進步伐。', part: 1, message: '可以訓練左右手的協調度，提升專注力，練音樂時可以暫時忘記難過的事。' },
-            { id: '04', name: '呂定睿', time: '4年', song: '命運交響曲', composer: '貝多芬', intro: '貝多芬第五號交響曲，著名的四個音符「登-登-登-等~」，象徵著命運在敲門，展示出克服命運的不屈力量。', part: 1, message: '學習鋼琴讓我變得更有耐心，也更有自信。雖然有時候練琴真的很煩，但每次克服一小段很難的旋律後，都會覺得很有成就感。' },
-            { id: '05', name: '胡愷芯', time: '10個月', song: '玩具交響曲', composer: 'Leopold Mozart（老莫札特）', intro: '18世紀流行於奧地利的趣味音樂，加入小鼓、鳥笛、鐘琴等玩具樂器，充滿節慶與歡樂氣氛。', part: 1, message: '學鋼琴很有趣，因為能親手彈出自己哼的旋律和喜歡的樂曲，是一件很棒的事，這讓我感到快樂，也增加了自信心。' },
-            { id: '06', name: '林柄成', time: '', song: '莫札特土耳其進行曲', composer: '莫札特', intro: '', part: 1, message: '' },
-            { id: '07', name: '莊雨葵', time: '1年', song: '歌劇〔魔笛〕組曲', composer: '莫札特', intro: '包含氣勢磅礡的《序曲》、俏皮逗趣的捕鳥人詠嘆調《情人或妻子》，以及女高音展現花腔極速高音的《夜后詠嘆調》。', part: 1, message: '聽到喜歡的樂曲可以自己試著視譜再彈出好聽的聲音，這個過程可以減少壓力。' },
-            { id: '08', name: '何祐昕', time: '', song: '庫勞第20號小奏鳴曲第1.3樂章', composer: '庫勞', intro: '', part: 1, message: '' },
-            { id: '09', name: '林靖雲', time: '5年', song: '歌劇〔費加洛婚禮〕組曲', composer: '莫札特', intro: '1. 〈序曲〉：節奏極快一氣呵成。\n2. 〈你知道愛的煩惱〉：細膩捕捉少年內心羞澀與躁動。\n3. 〈你再也不能隨處飛翔〉：費加洛調侃凱魯比諾參軍的幽默曲調。', part: 1, message: '放鬆心情、培養才藝' },
-            { id: '10', name: '劉紘碩', time: '5年', song: '貝多芬土耳其進行曲+布拉姆斯第5號匈牙利舞曲', composer: '貝多芬、布拉姆斯', intro: '第一首《土耳其進行曲》節奏輕快俏皮；第二首《第五號匈牙利舞曲》融合吉普賽民族音樂特色，充滿熱情與戲劇性。', part: 1, message: '我很喜歡彈鋼琴，彈琴時會讓我感到很開心。當我熟練一首曲子後，可以越彈越快，心情也會跟著越來越愉快。' },
-            { id: '11', name: '余宥潔', time: '2年4個月', song: '貝多芬G大調小奏鳴曲第1.2樂章', composer: '貝多芬', intro: '貝多芬為鋼琴初學者設計的經典教學曲目，結構精簡、旋律優美，展現輕快活潑的古典風格。', part: 2, message: '學習鋼琴不僅讓我學會了看譜，更大幅提升了我的記憶力。每當課業壓力沉重時，彈琴就成了我最好的紓壓方式！' },
-            { id: '12', name: '何承芳', time: '5年', song: '洋娃娃之夢', composer: '奧斯汀', intro: '德國鋼琴家奧斯汀作品。從輕柔搖籃曲開始，洋娃娃夢境逐漸歡樂，醒來後愉悅地跳起舞來，充滿故事畫面感。', part: 2, message: '增加技能' },
-            { id: '13', name: '謝宇翔', time: '', song: '貝多芬F大調小奏鳴曲第1樂章+莫札特奶油麵包', composer: '貝多芬、莫札特', intro: '', part: 2, message: '' },
-            { id: '14', name: '黃馨萱', time: '5年', song: 'C大調卡農', composer: '約翰·帕赫貝爾', intro: '卡農（Canon）意為「規則」，是一種複調音樂模仿寫作技巧。帕赫貝爾的《D大調卡農》是最為家喻戶曉的代表作。', part: 2, message: '每次挑戰新曲子，都會覺得好難，但每次挑戰成功會彈後，都讓我很有成就感。我會繼續挑戰下去的，加油。' },
-            { id: '15', name: '黃川赫', time: '5年', song: '貝多芬第7號交響曲第一樂章', composer: '貝多芬', intro: '充滿宏大氣勢與旺盛生命力的樂章，由宏偉慢速序奏帶入跳舞般奔放的快板節奏。', part: 2, message: '' },
-            { id: '16', name: '高卉欣', time: '5年多', song: '歌劇〔卡門〕組曲', composer: '喬治·比才', intro: '法國作曲家比才經典歌劇。劇中《哈巴奈拉》與《鬥牛士之歌》傳唱度極高，刻畫熱情吉普賽女郎卡門的傳奇故事。', part: 2, message: '我覺得學鋼琴可以讓我紓解壓力，每次聽到鋼琴聲我覺得很開心，每次偶像出新歌我都會找譜來彈！' },
-            { id: '17', name: '曾暄瑄', time: '6年', song: '小狗圓舞曲', composer: '蕭邦', intro: '靈感來自喬治·桑養的小狗追逐尾巴轉圈圈的可愛畫面，蕭邦創作出這段輕快、靈動迴旋的經典鋼琴小品。', part: 2, message: '練習鋼琴深刻地改變了我的性格與生活習慣。起初面對複雜樂譜常感到挫折，但透過一次次慢速練習，我逐漸學會了保持專注與耐心。' },
-            { id: '18', name: '葉莫菲', time: '', song: '藍色狂想曲', composer: '蓋希文', intro: '', part: 2, message: '' },
-            { id: '19', name: '陳睿廣', time: '6年', song: '蕭邦華麗的大圓舞曲', composer: '蕭邦', intro: '蕭邦於1833年創作，是他最著名的圓舞曲之一。展現連續快速音符、溫暖旋律與純粹的鋼琴技巧。', part: 2, message: '' },
-            { id: '20', name: '何祐岑', time: '', song: '銀波', composer: '懷曼', intro: '', part: 2, message: '' },
-            { id: '21', name: '許家盈', time: '4年多', song: '莫札特小星星變奏曲', composer: '莫札特', intro: '莫札特根據法國民謠發展出的十二段風格迥異變奏曲，後來被填上英文童謠《Twinkle, Twinkle, Little Star》。', part: 2, message: '可以訓練手眼協調度、更有自信而不會害怕上台。' }
-        ];
+        function csvToObjects(csv) {
+        const lines = csv.trim().split("\n");
+        const headers = lines[0].split(","); // Extract header names
+        
+        return lines.slice(1).map(line => {
+            const values = line.split(",");
+            return headers.reduce((obj, header, index) => {
+            obj[header.trim()] = values[index]?.trim();
+            return obj;
+            }, {});
+        });
+        }
+
+        let morningData = [];
+        let afternoonData = [];
+
+        async function loadProgramData() {
+        const [morningResponse, afternoonResponse] = await Promise.all([
+            fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vTTvGyYQi4pXMBWIGdiDCFrWcUvNHpD9MicwShyY-0Lh6eQ14stG7m4VitAUduXPbO5ckovTN9wx3l5/pub?gid=875286833&single=true&output=csv"),
+            fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vTTvGyYQi4pXMBWIGdiDCFrWcUvNHpD9MicwShyY-0Lh6eQ14stG7m4VitAUduXPbO5ckovTN9wx3l5/pub?gid=586622554&single=true&output=csv")
+        ]);
+
+        if (!morningResponse.ok || !afternoonResponse.ok) {
+            throw new Error('CSV 載入失敗');
+        }
+
+        const [morningCsv, afternoonCsv] = await Promise.all([
+            morningResponse.text(),
+            afternoonResponse.text()
+        ]);
+
+        morningData = csvToObjects(morningCsv);
+        afternoonData = csvToObjects(afternoonCsv);
+    }
+
 
         let currentSession = 'morning'; // 預設上午場
 
