@@ -415,9 +415,10 @@
     </div>
 
     <!-- 8. 數據與腳本邏輯 -->
-    <script type="module">
+     <script src="https://unpkg.com/papaparse@5.5.4/papaparse.min.js"></script>
+    <script>
 
-        import Papa from 'https://unpkg.com/papaparse@5.5.4/papaparse.min.js';
+
 
         function csvToObjects(csv) {
         const lines = csv.trim().split("\n");
@@ -437,8 +438,8 @@
 
         async function loadProgramData() {
         const [morningResponse, afternoonResponse] = await Promise.all([
-            fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vTTvGyYQi4pXMBWIGdiDCFrWcUvNHpD9MicwShyY-0Lh6eQ14stG7m4VitAUduXPbO5ckovTN9wx3l5/pub?gid=875286833&single=true&output=csv"),
-            fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vTTvGyYQi4pXMBWIGdiDCFrWcUvNHpD9MicwShyY-0Lh6eQ14stG7m4VitAUduXPbO5ckovTN9wx3l5/pub?gid=586622554&single=true&output=csv")
+            fetch("morning.csv"),
+            fetch("afternoon.csv")
         ]);
 
         if (!morningResponse.ok || !afternoonResponse.ok) {
