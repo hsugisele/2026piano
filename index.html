@@ -417,6 +417,8 @@
     <!-- 8. 數據與腳本邏輯 -->
     <script>
 
+        import Papa from 'https://unpkg.com/papaparse@5.5.4/papaparse.min.js';
+
         function csvToObjects(csv) {
         const lines = csv.trim().split("\n");
         const headers = lines[0].split(","); // Extract header names
@@ -448,9 +450,11 @@
             afternoonResponse.text()
         ]);
 
-        morningData = csvToObjects(morningCsv);
-        afternoonData = csvToObjects(afternoonCsv);
+        morningData = Papa.parse(morningCsv, {header: true,skipEmptyLines: true});
+        afternoonData = Papa.parse(afternoonCsv, {header: true,skipEmptyLines: true});
     }
+
+    loadProgramData();
 
 
         let currentSession = 'morning'; // 預設上午場
