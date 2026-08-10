@@ -455,9 +455,6 @@
         afternoonData = Papa.parse(afternoonCsv, {header: true,skipEmptyLines: true}).data;
     }
 
-    loadProgramData();
-
-
         let currentSession = 'morning'; // 預設上午場
 
         // 切換場次
@@ -493,8 +490,8 @@
             part2Container.innerHTML = '';
             timelineWrapper.classList.remove('hidden');
 
-            const part1Items = sourceData.filter(p => p.part === 1);
-            const part2Items = sourceData.filter(p => p.part === 2);
+            const part1Items = sourceData.filter(p => Number(p.part) === 1);
+            const part2Items = sourceData.filter(p => Number(p.part) === 2);
 
             // 控制區塊顯示
             part1Block.style.display = part1Items.length > 0 ? 'block' : 'none';
@@ -601,10 +598,15 @@
             if (e.target === this) closeModal();
         });
 
-        // 頁面載入後自動渲染
-        window.onload = function() {
-            renderProgram();
-        };
+        // 頁面載入後載入資料並渲染
+        window.addEventListener('DOMContentLoaded', async function() {
+            try {
+                await loadProgramData();
+                renderProgram();
+            } catch (error) {
+                console.error('載入 CSV 資料時發生錯誤:', error);
+            }
+        });
     </script>
 </body>
 </html>
